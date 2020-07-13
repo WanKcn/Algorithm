@@ -24,6 +24,12 @@ public class LinearSearch {
         int res2 = LinearSearch.search(data, 66);
         System.out.println(res2);
 
+        // 测试学生类
+        Student[] students = {new Student("zhangsan"),
+                new Student("zhaosi"), new Student("wanger")};
+        Student zhaosi = new Student("zhaosi");
+        int res3 = LinearSearch.search(students, zhaosi);
+        System.out.println(res3); // 返回-1 equals比较默认是两个类对象的地址
     }
 
 }
