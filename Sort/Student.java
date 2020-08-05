@@ -11,7 +11,8 @@ public class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student another) {
-        return (int) (this.score - another.score);
+        return this.score - another.score;
+//        return  another.score - this.score; 从大到小
     }
 
     // equals比较默认是两个类对象的地址，重写实现比较字符串

@@ -26,21 +26,13 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        Integer arr[] = {3, 5, 1, 4, 2, 9, 0, 8, 7};
-        sort(arr);
-        for (int num : arr)
-            System.out.print(num + ",");
+        int[] dataSize = {10000,100000};
+        for (int n: dataSize){
+            Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
+            SortingHelper.sortTest("SelectionSort", arr);
+        }
 
-
-        System.out.println();
-        
-        Student student1 = new Student("wank",98);
-        Student student2 = new Student("zhangsan",99);
-        Student student3 = new Student("lisi",70);
-
-        Student [] students = {student1,student2,student3};
-        SelectionSort.sort(students);
-        for (Student student:students)
-            System.out.print(student+" ");
+//        SelectionSort, n =10000, 0.112853 s
+//        SelectionSort, n =100000, 10.795565 s
     }
 }
