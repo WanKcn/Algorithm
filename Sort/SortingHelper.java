@@ -17,6 +17,7 @@ public class SortingHelper {
         long starTime = System.nanoTime();
         if (sortname.equals("SelectionSort"))
             SelectionSort.sort(arr);
+//            SelectionSort.sort2(arr);
         long endTime = System.nanoTime();
         double time = (endTime - starTime) / 1000000000.0;
         // 非有序抛运行时异常

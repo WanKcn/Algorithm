@@ -14,7 +14,18 @@ public class SelectionSort {
                     minIndex = j;
             }
             swap(arr, i, minIndex);
+        }
+    }
 
+    public static <E extends Comparable<E>> void sort2(E arr[]) {
+        // arr[0...i)无序 [i..n）有序
+        for (int i = arr.length - 1; i >= 0; i--) {
+            int maxIndex = i;
+            for (int j = i - 1; j >= 0; j--) {
+                if (arr[j].compareTo(arr[maxIndex]) > 0)
+                    maxIndex = j;
+            }
+            swap(arr, i, maxIndex);
         }
     }
 
@@ -26,8 +37,8 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        int[] dataSize = {10000,100000};
-        for (int n: dataSize){
+        int[] dataSize = {10000, 100000};
+        for (int n : dataSize) {
             Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
             SortingHelper.sortTest("SelectionSort", arr);
         }
