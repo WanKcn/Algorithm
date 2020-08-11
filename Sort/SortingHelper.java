@@ -18,11 +18,19 @@ public class SortingHelper {
         if (sortname.equals("SelectionSort"))
             SelectionSort.sort(arr);
 //            SelectionSort.sort2(arr);
+        else if (sortname.equals("IsertionSort"))
+//            IsertionSort.sort(arr);
+            IsertionSort.sort3(arr);
+        else if (sortname.equals("IsertionSort2"))
+            IsertionSort.sort2(arr);
+        else if(sortname.equals("MergeSort"))
+            MergeSort.sort(arr);
+
         long endTime = System.nanoTime();
         double time = (endTime - starTime) / 1000000000.0;
         // 非有序抛运行时异常
         if (!SortingHelper.isSorted(arr))
-            throw new RuntimeException(sortname + "failed");
-        System.out.println(String.format("%s, n =%d, %f s",sortname,arr.length,time));
+            throw new RuntimeException(sortname + " failed");
+        System.out.println(String.format("%s, n =%d, %f s", sortname, arr.length, time));
     }
 }
