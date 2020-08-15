@@ -29,12 +29,6 @@ public class IsertionSort {
             E temp = arr[i];
             // 实际存储位置
             int j;
-//            for (j = i; j - 1 >= 0; j--) {
-//                if (temp.compareTo(arr[j - 1]) < 0)
-//                    arr[j] = arr[j - 1];
-//                else
-//                    break;
-//            }
             for (j = i; j - 1 >= 0 && temp.compareTo(arr[j - 1]) < 0; j--)
                 arr[j] = arr[j - 1];
             arr[j] = temp;
@@ -48,12 +42,6 @@ public class IsertionSort {
             E temp = arr[i];
             // 实际存储位置
             int j;
-//            for (j = i; j + 1 < arr.length; j++) {
-//                if (temp.compareTo(arr[j + 1]) > 0)
-//                    arr[j] = arr[j + 1];
-//                else
-//                    break;
-//            }
             for (j = i; j + 1 < arr.length && temp.compareTo(arr[j + 1]) > 0; j++)
                 arr[j] = arr[j + 1];
             arr[j] = temp;
