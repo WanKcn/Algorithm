@@ -24,6 +24,23 @@ public class MergeSort {
 
     }
 
+    // 自底向上的归并排序
+    public static <E extends Comparable<E>> void sortBU(E[] arr) {
+        // 开辟临时空间
+        int n = arr.length;
+        E[] temp = Arrays.copyOf(arr, n);
+
+        // 遍历需要合并的区间 size翻倍上涨
+        for (int size = 1; size < n; size += size) {
+            // 合并区间[i..i+size-1] 和[i+size..i+size+size-1或(n-1)] 起始位置为i
+            for (int i = 0; i + size < n; i = i + size + size)
+                // 两个区间前一个元素大于后一个区间第一个元素才有必要归并
+                if (arr[i + size - 1].compareTo(arr[i + size]) > 0)
+                    merge(arr, i, i + size - 1, Math.min(i + size + size - 1, n - 1), temp);
+        }
+
+    }
+
     // 合并区间 arr[l...mid],arr[mid+1...r]
     private static <E extends Comparable<E>> void merge(E[] arr, int l, int mid, int r, E[] temp) {
         // 保证temp和arr相应元素相同
@@ -53,7 +70,9 @@ public class MergeSort {
         int[] dataSize = {10000, 100000};
         for (int n : dataSize) {
             Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
+            Integer[] arr2 = Arrays.copyOf(arr, arr.length);
             SortingHelper.sortTest("MergeSort", arr);
+            SortingHelper.sortTest("MergeSortBU", arr2);
         }
 
 //        Integer[] arr = {1, 3, 4, 2, 6, 5, 7, 9, 8, 0};

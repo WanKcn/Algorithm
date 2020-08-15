@@ -23,8 +23,10 @@ public class SortingHelper {
             IsertionSort.sort3(arr);
         else if (sortname.equals("IsertionSort2"))
             IsertionSort.sort2(arr);
-        else if(sortname.equals("MergeSort"))
+        else if (sortname.equals("MergeSort"))
             MergeSort.sort(arr);
+        else if (sortname.equals("MergeSortBU"))
+            MergeSort.sortBU(arr);
 
         long endTime = System.nanoTime();
         double time = (endTime - starTime) / 1000000000.0;
