@@ -24,7 +24,7 @@ public class MergeSort {
 
     }
 
-    // 自底向上的归并排序
+    // 自底向上的归并排序 非递归
     public static <E extends Comparable<E>> void sortBU(E[] arr) {
         // 开辟临时空间
         int n = arr.length;
